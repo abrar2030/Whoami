@@ -1,0 +1,1515 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>abrar2030 ~ quantitative researcher &amp; engineer</title>
+    <meta
+      name="description"
+      content="Abrar Ahmed. Quantitative Researcher &amp; Engineer. MSc Financial Engineering, WorldQuant University. Founder of QuantSingularity."
+    />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='18' fill='%230B0E13'/%3E%3Ctext x='50' y='68' font-size='58' text-anchor='middle' fill='%2356D4DD' font-family='monospace'%3E&gt;_%3C/text%3E%3C/svg%3E"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #0b0e13;
+        --bg-raised: #11151c;
+        --bg-terminal: #0d1117;
+        --bg-input: #161b22;
+        --rule: #232b36;
+        --rule-soft: #1a2029;
+        --text: #c9d1d9;
+        --text-dim: #7d8590;
+        --text-faint: #4b5563;
+        --cyan: #56d4dd;
+        --violet: #c297ff;
+        --amber: #e3b341;
+        --green: #56d364;
+        --red: #f85149;
+        --mono:
+          "JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+        --maxw: 980px;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        margin: 0;
+        background:
+          radial-gradient(
+            ellipse 900px 500px at 15% -10%,
+            rgba(86, 212, 221, 0.06),
+            transparent
+          ),
+          radial-gradient(
+            ellipse 700px 500px at 100% 10%,
+            rgba(194, 151, 255, 0.05),
+            transparent
+          ),
+          var(--bg);
+        color: var(--text);
+        font-family: var(--mono);
+        line-height: 1.65;
+        -webkit-font-smoothing: antialiased;
+      }
+      ::selection {
+        background: var(--cyan);
+        color: #04211f;
+      }
+      a {
+        color: var(--cyan);
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+      :focus-visible {
+        outline: 2px solid var(--cyan);
+        outline-offset: 2px;
+      }
+      .wrap {
+        max-width: var(--maxw);
+        margin: 0 auto;
+        padding: 0 24px;
+      }
+      img {
+        max-width: 100%;
+        display: block;
+      }
+
+      /* ---------- NAV ---------- */
+      header.nav {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        background: rgba(11, 14, 19, 0.88);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid var(--rule);
+      }
+      .nav__row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 16px 24px;
+        max-width: var(--maxw);
+        margin: 0 auto;
+      }
+      .wordmark {
+        font-weight: 600;
+        font-size: 14.5px;
+        color: var(--text);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        text-decoration: none;
+      }
+      .wordmark .prompt-sym {
+        color: var(--green);
+      }
+      .wordmark::after {
+        content: "";
+        width: 8px;
+        height: 15px;
+        background: var(--cyan);
+        margin-left: 2px;
+        animation: blink 1.1s steps(1) infinite;
+      }
+      @keyframes blink {
+        0%,
+        49% {
+          opacity: 1;
+        }
+        50%,
+        100% {
+          opacity: 0;
+        }
+      }
+      .nav__links {
+        display: flex;
+        align-items: center;
+        gap: 22px;
+      }
+      .nav__links button {
+        background: none;
+        border: none;
+        cursor: pointer;
+        font-family: var(--mono);
+        font-size: 12.5px;
+        color: var(--text-dim);
+        letter-spacing: 0.01em;
+        padding: 0;
+        transition: color 0.15s ease;
+      }
+      .nav__links button:hover {
+        color: var(--cyan);
+      }
+      .nav__links button::before {
+        content: "./";
+        color: var(--text-faint);
+      }
+      .nav__links a.ext {
+        font-size: 12.5px;
+        color: var(--text-dim);
+        transition: color 0.15s ease;
+      }
+      .nav__links a.ext:hover {
+        color: var(--violet);
+      }
+      @media (max-width: 680px) {
+        .nav__links {
+          display: none;
+        }
+      }
+
+      /* ---------- HERO / IDENTITY ---------- */
+      .hero {
+        padding: 56px 0 24px;
+      }
+      .hero__title {
+        font-size: clamp(24px, 3.4vw, 32px);
+        font-weight: 600;
+        color: var(--text);
+        margin: 0 0 6px;
+      }
+      .hero__role {
+        color: var(--cyan);
+        font-size: 14.5px;
+        margin: 0 0 4px;
+      }
+      .hero__tagline {
+        color: var(--text-dim);
+        font-size: 13.5px;
+        margin: 0 0 4px;
+      }
+      .hero__meta {
+        color: var(--text-dim);
+        font-size: 13px;
+        margin: 0 0 16px;
+      }
+      .hero__meta a {
+        color: var(--text-dim);
+        border-bottom: 1px dotted var(--text-faint);
+      }
+      .hero__meta a:hover {
+        color: var(--violet);
+        border-color: var(--violet);
+      }
+      .status-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 12px;
+        color: var(--green);
+        border: 1px solid rgba(86, 211, 100, 0.35);
+        background: rgba(86, 211, 100, 0.08);
+        padding: 6px 13px;
+        border-radius: 20px;
+        margin: 0;
+      }
+      .status-dot {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: var(--green);
+        flex-shrink: 0;
+        animation: pulse 2s ease-in-out infinite;
+      }
+      @keyframes pulse {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.35;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .status-dot {
+          animation: none;
+        }
+      }
+
+      /* ---------- TERMINAL ---------- */
+      .terminal-shell {
+        margin: 32px 0 56px;
+        border-radius: 8px;
+        overflow: hidden;
+        border: 1px solid var(--rule);
+        box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.6);
+      }
+      .terminal-bar {
+        background: var(--bg-raised);
+        padding: 10px 14px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        border-bottom: 1px solid var(--rule);
+      }
+      .dot {
+        width: 11px;
+        height: 11px;
+        border-radius: 50%;
+      }
+      .dot--r {
+        background: #f85149;
+      }
+      .dot--y {
+        background: #e3b341;
+      }
+      .dot--g {
+        background: #56d364;
+      }
+      .terminal-title {
+        flex: 1;
+        text-align: center;
+        font-size: 11.5px;
+        color: var(--text-faint);
+        margin-right: 44px;
+      }
+      .terminal-body {
+        background: var(--bg-terminal);
+        padding: 20px 20px 14px;
+        height: 460px;
+        overflow-y: auto;
+        font-size: 13.5px;
+        cursor: text;
+      }
+      .terminal-body::-webkit-scrollbar {
+        width: 9px;
+      }
+      .terminal-body::-webkit-scrollbar-thumb {
+        background: var(--rule);
+        border-radius: 5px;
+      }
+      .terminal-body::-webkit-scrollbar-track {
+        background: transparent;
+      }
+
+      .line {
+        white-space: pre-wrap;
+        word-break: break-word;
+        margin: 0 0 2px;
+      }
+      .line.muted {
+        color: var(--text-dim);
+      }
+      .line.faint {
+        color: var(--text-faint);
+      }
+      .line.cyan {
+        color: var(--cyan);
+      }
+      .line.violet {
+        color: var(--violet);
+      }
+      .line.amber {
+        color: var(--amber);
+      }
+      .line.green {
+        color: var(--green);
+      }
+      .line.red {
+        color: var(--red);
+      }
+      .line b {
+        font-weight: 600;
+        color: var(--text);
+      }
+      .out-block {
+        margin: 2px 0 14px;
+      }
+      .hist-row {
+        display: flex;
+        gap: 8px;
+        margin: 10px 0 0;
+      }
+      .hist-prompt {
+        color: var(--green);
+        white-space: nowrap;
+      }
+      .hist-cmd {
+        color: var(--text);
+      }
+
+      .help-grid {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: 2px 18px;
+        margin: 4px 0 0;
+      }
+      .help-grid .cmd {
+        color: var(--cyan);
+      }
+      .help-grid .desc {
+        color: var(--text-dim);
+      }
+
+      .icon-row img {
+        height: 42px;
+        margin: 6px 6px 0 0;
+        display: inline-block;
+        vertical-align: middle;
+      }
+      .icon-cat {
+        color: var(--violet);
+        font-size: 12px;
+        margin: 14px 0 2px;
+      }
+      .icon-cat:first-child {
+        margin-top: 4px;
+      }
+
+      .badge-row {
+        margin: 8px 0;
+      }
+      .badge-row img {
+        height: 26px;
+        margin: 4px 6px 4px 0;
+        display: inline-block;
+        vertical-align: middle;
+      }
+
+      .prompt-line {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-top: 8px;
+      }
+      .prompt-sym {
+        color: var(--green);
+        white-space: nowrap;
+        font-size: 13.5px;
+      }
+      #cmdInput {
+        flex: 1;
+        background: transparent;
+        border: none;
+        outline: none;
+        font-family: var(--mono);
+        font-size: 13.5px;
+        color: var(--text);
+        caret-color: var(--cyan);
+      }
+      #cmdInput::placeholder {
+        color: var(--text-faint);
+      }
+
+      .link-line {
+        display: flex;
+        gap: 10px;
+        align-items: baseline;
+        margin: 2px 0;
+      }
+      .link-line .key {
+        color: var(--text-dim);
+        min-width: 110px;
+        display: inline-block;
+      }
+
+      /* ---------- CODE FILE SECTION ---------- */
+      .section {
+        padding: 8px 0 56px;
+      }
+      .section__head {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 18px;
+      }
+      .section__head .tag {
+        font-size: 11px;
+        color: var(--text-faint);
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        border: 1px solid var(--rule);
+        padding: 4px 9px;
+        border-radius: 3px;
+      }
+      .section__head h2 {
+        font-size: 15px;
+        font-weight: 600;
+        color: var(--text);
+        margin: 0;
+      }
+
+      .code-file {
+        background: var(--bg-terminal);
+        border: 1px solid var(--rule);
+        border-radius: 8px;
+        overflow: hidden;
+      }
+      .code-file__bar {
+        background: var(--bg-raised);
+        padding: 9px 16px;
+        font-size: 11.5px;
+        color: var(--text-faint);
+        border-bottom: 1px solid var(--rule);
+      }
+      .code-file pre {
+        margin: 0;
+        padding: 22px 24px;
+        font-size: 13px;
+        line-height: 1.85;
+        overflow-x: auto;
+      }
+      .tok-kw {
+        color: var(--violet);
+      }
+      .tok-str {
+        color: var(--amber);
+      }
+      .tok-cls {
+        color: var(--cyan);
+        font-weight: 600;
+      }
+      .tok-fn {
+        color: var(--cyan);
+      }
+      .tok-cm {
+        color: var(--text-faint);
+        font-style: italic;
+      }
+      .tok-num {
+        color: var(--green);
+      }
+      .tok-prop {
+        color: var(--text);
+      }
+
+      /* ---------- SKILLS GRID ---------- */
+      .skills-panel {
+        background: var(--bg-terminal);
+        border: 1px solid var(--rule);
+        border-radius: 8px;
+        padding: 24px;
+      }
+      .skill-group + .skill-group {
+        margin-top: 20px;
+      }
+      .skill-group__label {
+        font-size: 11.5px;
+        color: var(--violet);
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        margin-bottom: 10px;
+      }
+      .skill-group img {
+        height: 44px;
+        margin: 0 8px 8px 0;
+        display: inline-block;
+      }
+
+      /* ---------- RESEARCH ---------- */
+      .chip-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+      .skill-chip {
+        font-size: 12px;
+        color: var(--text-dim);
+        border: 1px solid var(--rule);
+        padding: 6px 12px;
+        border-radius: 5px;
+        background: var(--bg-raised);
+        transition: all 0.15s ease;
+      }
+      .skill-chip:hover {
+        border-color: var(--violet);
+        color: var(--violet);
+      }
+
+      .project-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 14px;
+      }
+      @media (max-width: 720px) {
+        .project-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+      .project-card {
+        display: block;
+        background: var(--bg-terminal);
+        border: 1px solid var(--rule);
+        border-radius: 8px;
+        padding: 18px 20px;
+        transition: border-color 0.15s ease;
+        text-decoration: none;
+      }
+      .project-card:hover {
+        border-color: var(--cyan);
+      }
+      .project-card:hover .project-card__name {
+        color: var(--cyan);
+      }
+      .project-card__name {
+        font-size: 14px;
+        font-weight: 600;
+        color: var(--text);
+        display: flex;
+        align-items: center;
+        gap: 7px;
+        margin: 0 0 8px;
+        transition: color 0.15s ease;
+      }
+      .project-card__name::before {
+        content: ">";
+        color: var(--green);
+        font-weight: 600;
+      }
+      .project-card__desc {
+        font-size: 12.5px;
+        color: var(--text-dim);
+        line-height: 1.6;
+        margin: 0 0 12px;
+      }
+      .project-card__tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+      }
+      .project-tag {
+        font-size: 10.5px;
+        color: var(--text-faint);
+        border: 1px solid var(--rule-soft);
+        padding: 2px 8px;
+        border-radius: 3px;
+      }
+
+      .research-list {
+        list-style: none;
+        margin: 0 0 20px;
+        padding: 0;
+      }
+      .research-list li {
+        padding: 12px 0;
+        border-bottom: 1px solid var(--rule-soft);
+        display: flex;
+        gap: 12px;
+        align-items: baseline;
+        font-size: 13.5px;
+        color: var(--text-dim);
+      }
+      .research-list li:last-child {
+        border-bottom: none;
+      }
+      .research-list .tick {
+        color: var(--green);
+      }
+      .pub-note {
+        font-size: 13px;
+        color: var(--text-dim);
+        border-left: 2px solid var(--rule);
+        padding-left: 14px;
+        margin: 20px 0;
+      }
+      .pub-note b {
+        color: var(--text);
+      }
+
+      /* ---------- CONTACT ---------- */
+      .contact-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+      .contact-grid img {
+        height: 34px;
+      }
+
+      footer {
+        border-top: 1px solid var(--rule);
+        padding: 28px 0;
+      }
+      .footer__row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 12px;
+        font-size: 12px;
+        color: var(--text-faint);
+      }
+      .footer__row a {
+        color: var(--text-faint);
+      }
+      .footer__row a:hover {
+        color: var(--cyan);
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+        .wordmark::after {
+          animation: none;
+          opacity: 1;
+        }
+      }
+      @media (max-width: 640px) {
+        .terminal-body {
+          height: 400px;
+        }
+        .help-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="nav">
+      <div class="nav__row">
+        <a href="#top" class="wordmark"
+          ><span class="prompt-sym">&gt;</span>abrar2030</a
+        >
+        <nav class="nav__links">
+          <button data-cmd="about">about</button>
+          <button data-cmd="skills">skills</button>
+          <button data-cmd="projects">projects</button>
+          <button data-cmd="research">research</button>
+          <button data-cmd="contact">contact</button>
+          <a
+            class="ext"
+            href="https://github.com/quantsingularity"
+            target="_blank"
+            rel="noopener"
+            >quantsingularity ↗</a
+          >
+        </nav>
+      </div>
+    </header>
+
+    <main id="top" class="wrap">
+      <section class="hero">
+        <h1 class="hero__title">Abrar Ahmed</h1>
+        <p class="hero__role">Quantitative Researcher &amp; Engineer</p>
+        <p class="hero__tagline">
+          ML for Finance &middot; MSc Financial Engineering (WQU) &middot;
+          Python, C++
+        </p>
+        <p class="hero__meta">
+          Budapest Metropolitan Area &middot; Founder,
+          <a
+            href="https://github.com/quantsingularity"
+            target="_blank"
+            rel="noopener"
+            >QuantSingularity</a
+          >
+          (2025)
+        </p>
+        <p class="status-pill">
+          <span class="status-dot"></span>Open to quantitative finance,
+          financial engineering &amp; ML-in-finance roles
+        </p>
+      </section>
+
+      <div class="terminal-shell">
+        <div class="terminal-bar">
+          <span class="dot dot--r"></span>
+          <span class="dot dot--y"></span>
+          <span class="dot dot--g"></span>
+          <span class="terminal-title">visitor@abrar2030: ~</span>
+        </div>
+        <div class="terminal-body" id="terminalBody" tabindex="0"></div>
+      </div>
+
+      <section class="section" id="about-code">
+        <div class="section__head">
+          <span class="tag">01</span>
+          <h2>profile.py</h2>
+        </div>
+        <div class="code-file">
+          <div class="code-file__bar">profile.py</div>
+          <pre><code><span class="tok-kw">class</span> <span class="tok-cls">AbrarAhmed</span>:
+    <span class="tok-cm"># Quantitative Researcher &amp; Engineer</span>
+    <span class="tok-prop">role</span>       = <span class="tok-str">"Quantitative Researcher &amp; Engineer"</span>
+    <span class="tok-prop">education</span>  = <span class="tok-str">"MSc Financial Engineering, WorldQuant University"</span>
+    <span class="tok-prop">location</span>   = <span class="tok-str">"Budapest Metropolitan Area"</span>
+    <span class="tok-prop">founder_of</span> = <span class="tok-str">"QuantSingularity"</span>  <span class="tok-cm"># founded 2025, github.com/quantsingularity</span>
+
+    <span class="tok-prop">research_focus</span> = [
+        <span class="tok-str">"volatility forecasting"</span>,
+        <span class="tok-str">"market microstructure"</span>,
+        <span class="tok-str">"deep reinforcement learning for portfolio optimization"</span>,
+    ]
+
+    <span class="tok-prop">publications</span> = {
+        <span class="tok-str">"count"</span>: <span class="tok-num">4</span>,
+        <span class="tok-str">"type"</span>: <span class="tok-str">"preprint papers, each with a full Python implementation"</span>,
+        <span class="tok-str">"hosts"</span>: [<span class="tok-str">"ResearchGate"</span>, <span class="tok-str">"Zenodo"</span>, <span class="tok-str">"SSRN"</span>],
+    }
+
+    <span class="tok-prop">stack</span> = [<span class="tok-str">"Python"</span>, <span class="tok-str">"C++"</span>, <span class="tok-str">"R"</span>]
+
+    <span class="tok-kw">def</span> <span class="tok-fn">about</span>(<span class="tok-prop">self</span>):
+        <span class="tok-kw">return</span> (
+            <span class="tok-str">"I build both the research and the system that runs "</span>
+            <span class="tok-str">"it: explainable, production-ready AI for financial "</span>
+            <span class="tok-str">"markets."</span>
+        )
+
+    <span class="tok-kw">def</span> <span class="tok-fn">status</span>(<span class="tok-prop">self</span>):
+        <span class="tok-kw">return</span> <span class="tok-str">"open to quant finance, financial engineering &amp; ML-in-finance roles"</span></code></pre>
+        </div>
+      </section>
+
+      <section class="section" id="skills">
+        <div class="section__head">
+          <span class="tag">02</span>
+          <h2>skills.json</h2>
+        </div>
+        <div class="skills-panel">
+          <div class="skill-group">
+            <div class="skill-group__label">Languages</div>
+            <img
+              src="https://skillicons.dev/icons?i=python,cpp,r"
+              alt="Python, C++, R"
+              loading="lazy"
+            />
+          </div>
+          <div class="skill-group">
+            <div class="skill-group__label">
+              Quantitative Finance &amp; Financial Engineering
+            </div>
+            <div class="chip-row">
+              <span class="skill-chip">Portfolio Optimization</span>
+              <span class="skill-chip">Black-Litterman</span>
+              <span class="skill-chip">Risk Parity</span>
+              <span class="skill-chip">Monte Carlo Simulation</span>
+              <span class="skill-chip"
+                >Options Pricing (Black-Scholes, Binomial, Heston)</span
+              >
+              <span class="skill-chip">Value-at-Risk &amp; CVaR</span>
+              <span class="skill-chip">GARCH &amp; Stochastic Volatility</span>
+              <span class="skill-chip">Factor Models (Fama-French)</span>
+              <span class="skill-chip">Fixed Income &amp; Yield Curves</span>
+              <span class="skill-chip">Market Microstructure</span>
+            </div>
+          </div>
+          <div class="skill-group">
+            <div class="skill-group__label">
+              Machine Learning &amp; Quant Research
+            </div>
+            <div class="chip-row">
+              <span class="skill-chip">Time Series Modeling</span>
+              <span class="skill-chip">Walk-Forward Backtesting</span>
+              <span class="skill-chip">SHAP &amp; Explainable AI</span>
+              <span class="skill-chip"
+                >Reinforcement Learning (PPO, QR-DDPG, SAC)</span
+              >
+              <span class="skill-chip">Deep Learning (LSTM, Transformers)</span>
+              <span class="skill-chip">Graph Neural Networks</span>
+              <span class="skill-chip">Feature Engineering</span>
+            </div>
+          </div>
+          <div class="skill-group">
+            <div class="skill-group__label">ML Frameworks</div>
+            <img
+              src="https://skillicons.dev/icons?i=pytorch,tensorflow,sklearn"
+              alt="PyTorch, TensorFlow, scikit-learn"
+              loading="lazy"
+            />
+            <div class="chip-row" style="margin-top: 8px">
+              <span class="skill-chip">XGBoost</span>
+              <span class="skill-chip">LightGBM</span>
+            </div>
+          </div>
+          <div class="skill-group">
+            <div class="skill-group__label">Cloud &amp; Infrastructure</div>
+            <img
+              src="https://skillicons.dev/icons?i=aws,gcp,azure,docker,kubernetes"
+              alt="AWS, GCP, Azure, Docker, Kubernetes"
+              loading="lazy"
+            />
+          </div>
+          <div class="skill-group">
+            <div class="skill-group__label">Data &amp; Tooling</div>
+            <img
+              src="https://skillicons.dev/icons?i=postgres,mongodb,git,latex,matlab"
+              alt="Postgres, MongoDB, Git, LaTeX, MATLAB"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="projects">
+        <div class="section__head">
+          <span class="tag">03</span>
+          <h2>projects/</h2>
+        </div>
+        <div class="project-grid">
+          <a
+            class="project-card"
+            href="https://github.com/quantsingularity/QuantumAlpha"
+            target="_blank"
+            rel="noopener"
+          >
+            <div class="project-card__name">QuantumAlpha</div>
+            <div class="project-card__desc">
+              AI-driven hedge fund platform: RL/ML alpha models, risk and
+              execution microservices, React and React Native clients.
+            </div>
+            <div class="project-card__tags">
+              <span class="project-tag">Python</span
+              ><span class="project-tag">Reinforcement Learning</span
+              ><span class="project-tag">Microservices</span>
+            </div>
+          </a>
+          <a
+            class="project-card"
+            href="https://github.com/quantsingularity/Fluxion"
+            target="_blank"
+            rel="noopener"
+          >
+            <div class="project-card__name">Fluxion</div>
+            <div class="project-card__desc">
+              ZK-powered synthetic asset liquidity engine with a real
+              Circom/Groth16 circuit and Chainlink CCIP cross-chain routing.
+            </div>
+            <div class="project-card__tags">
+              <span class="project-tag">Python</span
+              ><span class="project-tag">Solidity</span
+              ><span class="project-tag">Zero-Knowledge</span>
+            </div>
+          </a>
+          <a
+            class="project-card"
+            href="https://github.com/quantsingularity/ChainFinity"
+            target="_blank"
+            rel="noopener"
+          >
+            <div class="project-card__name">ChainFinity</div>
+            <div class="project-card__desc">
+              Cross-chain DeFi risk management platform: FastAPI backend,
+              Solidity contracts, TensorFlow/LSTM volatility forecasting.
+            </div>
+            <div class="project-card__tags">
+              <span class="project-tag">FastAPI</span
+              ><span class="project-tag">Solidity</span
+              ><span class="project-tag">LSTM</span>
+            </div>
+          </a>
+          <a
+            class="project-card"
+            href="https://github.com/quantsingularity/AADXVA"
+            target="_blank"
+            rel="noopener"
+          >
+            <div class="project-card__name">AADXVA</div>
+            <div class="project-card__desc">
+              Header-only C++20 adjoint algorithmic differentiation engine for
+              equity XVA (CVA/DVA/FVA/MVA) and wrong-way risk.
+            </div>
+            <div class="project-card__tags">
+              <span class="project-tag">C++20</span
+              ><span class="project-tag">Adjoint AD</span
+              ><span class="project-tag">pybind11</span>
+            </div>
+          </a>
+          <a
+            class="project-card"
+            href="https://github.com/quantsingularity/QuantLab"
+            target="_blank"
+            rel="noopener"
+          >
+            <div class="project-card__name">QuantLab</div>
+            <div class="project-card__desc">
+              Multi-agent AI framework automating quant research end to end,
+              from hypothesis generation to leakage-aware backtesting.
+            </div>
+            <div class="project-card__tags">
+              <span class="project-tag">Multi-Agent AI</span
+              ><span class="project-tag">Research</span
+              ><span class="project-tag">Python</span>
+            </div>
+          </a>
+          <a
+            class="project-card"
+            href="https://github.com/quantsingularity/Graph-Enhanced-LSTM-for-Volatility-and-Contagion-Forecasting"
+            target="_blank"
+            rel="noopener"
+          >
+            <div class="project-card__name">GE-LSTM-Attn</div>
+            <div class="project-card__desc">
+              Multi-task model jointly forecasting volatility, VaR, and systemic
+              contagion over a dynamic correlation graph.
+            </div>
+            <div class="project-card__tags">
+              <span class="project-tag">Graph Attention</span
+              ><span class="project-tag">LSTM</span
+              ><span class="project-tag">Systemic Risk</span>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <section class="section" id="research">
+        <div class="section__head">
+          <span class="tag">04</span>
+          <h2>research.md</h2>
+        </div>
+        <ul class="research-list">
+          <li>
+            <span class="tick">&gt;</span> Volatility forecasting &amp; regime
+            detection
+          </li>
+          <li>
+            <span class="tick">&gt;</span> CBDC liquidity management systems
+          </li>
+          <li>
+            <span class="tick">&gt;</span> Market microstructure &amp; spoofing
+            detection
+          </li>
+          <li>
+            <span class="tick">&gt;</span> Deep reinforcement learning for
+            trading
+          </li>
+          <li><span class="tick">&gt;</span> Quantum finance</li>
+        </ul>
+        <p class="pub-note">
+          <b>4 preprint papers</b> published on ResearchGate, Zenodo, and SSRN,
+          each accompanied by a full Python implementation.
+        </p>
+        <div class="badge-row">
+          <a
+            href="https://papers.ssrn.com/Sol3/Cf_Dev/AbsByAuth.cfm?per_id=10498476"
+            target="_blank"
+            rel="noopener"
+            ><img
+              src="https://img.shields.io/badge/SSRN-Research_Papers-154881?style=flat-square&logo=ssrn&logoColor=white"
+              alt="SSRN"
+          /></a>
+          <a
+            href="https://www.researchgate.net/profile/Abrar-Ahmed-59"
+            target="_blank"
+            rel="noopener"
+            ><img
+              src="https://img.shields.io/badge/ResearchGate-Profile-00CCBB?style=flat-square&logo=researchgate&logoColor=white"
+              alt="ResearchGate"
+          /></a>
+        </div>
+      </section>
+
+      <section class="section" id="contact">
+        <div class="section__head">
+          <span class="tag">05</span>
+          <h2>contact.txt</h2>
+        </div>
+        <div class="contact-grid">
+          <a
+            href="https://linkedin.com/in/abrar2030"
+            target="_blank"
+            rel="noopener"
+            ><img
+              src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white"
+              alt="LinkedIn"
+          /></a>
+          <a
+            href="https://www.researchgate.net/profile/Abrar-Ahmed-59"
+            target="_blank"
+            rel="noopener"
+            ><img
+              src="https://img.shields.io/badge/ResearchGate-00CCBB?style=for-the-badge&logo=researchgate&logoColor=white"
+              alt="ResearchGate"
+          /></a>
+          <a
+            href="https://www.credly.com/users/abrar-ahmed"
+            target="_blank"
+            rel="noopener"
+            ><img
+              src="https://img.shields.io/badge/Credly-FF6B00?style=for-the-badge&logo=credly&logoColor=white"
+              alt="Credly"
+          /></a>
+          <a
+            href="https://www.cloudskillsboost.google/public_profiles/1601f1ee-b805-48be-a523-753d139f53cf"
+            target="_blank"
+            rel="noopener"
+            ><img
+              src="https://img.shields.io/badge/Google_Cloud-4285F4?style=for-the-badge&logo=googlecloud&logoColor=white"
+              alt="Google Cloud"
+          /></a>
+          <a
+            href="https://www.hackerrank.com/abrar2030"
+            target="_blank"
+            rel="noopener"
+            ><img
+              src="https://img.shields.io/badge/HackerRank-00EA64?style=for-the-badge&logo=hackerrank&logoColor=black"
+              alt="HackerRank"
+          /></a>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="wrap footer__row">
+        <span
+          >© <span id="year"></span> Abrar Ahmed. Built with a terminal, not a
+          template.</span
+        >
+        <span
+          ><img
+            src="https://komarev.com/ghpvc/?username=abrar2030&style=flat-square&color=blueviolet&label=Profile+Views"
+            alt="Profile views"
+            style="height: 20px; vertical-align: middle"
+        /></span>
+      </div>
+    </footer>
+
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+
+      const body = document.getElementById("terminalBody");
+      const PROMPT = "visitor@abrar2030 ~ %";
+
+      const FILES = {
+        "about.md": "about",
+        "skills.json": "skills",
+        "research.md": "research",
+        "education.md": "education",
+        "contact.txt": "contact",
+        projects: "projects",
+      };
+      const COMMANDS = [
+        "help",
+        "about",
+        "skills",
+        "research",
+        "education",
+        "projects",
+        "contact",
+        "whoami",
+        "ls",
+        "cat",
+        "clear",
+        "date",
+        "history",
+        "neofetch",
+        "echo",
+        "sudo",
+        "exit",
+      ];
+
+      let history = [];
+      let histIndex = -1;
+
+      function esc(s) {
+        return s.replace(
+          /[&<>"']/g,
+          (m) =>
+            ({
+              "&": "&amp;",
+              "<": "&lt;",
+              ">": "&gt;",
+              '"': "&quot;",
+              "'": "&#39;",
+            })[m],
+        );
+      }
+
+      function appendRaw(html) {
+        const div = document.createElement("div");
+        div.className = "out-block";
+        div.innerHTML = html;
+        body.appendChild(div);
+        body.scrollTop = body.scrollHeight;
+      }
+
+      function line(text, cls) {
+        return (
+          '<div class="line' + (cls ? " " + cls : "") + '">' + text + "</div>"
+        );
+      }
+
+      function renderHistoryLine(cmd) {
+        const div = document.createElement("div");
+        div.className = "hist-row";
+        div.innerHTML =
+          '<span class="hist-prompt">' +
+          esc(PROMPT) +
+          '</span><span class="hist-cmd">' +
+          esc(cmd) +
+          "</span>";
+        body.appendChild(div);
+      }
+
+      function neofetch() {
+        return (
+          line("OS       : WorldQuant University (MScFE)") +
+          line("Host     : QuantSingularity Research Lab") +
+          line("Role     : Quantitative Researcher &amp; Engineer") +
+          line("Languages: Python, C++, R") +
+          line(
+            "ML       : PyTorch, TensorFlow, scikit-learn, XGBoost, LightGBM",
+          ) +
+          line("Cloud    : AWS, GCP, Azure") +
+          line(
+            "Status   : open to quant finance &amp; ML-in-finance roles",
+            "green",
+          )
+        );
+      }
+
+      function helpOutput() {
+        const rows = [
+          ["help", "list available commands"],
+          ["about", "who I am, in one paragraph"],
+          ["skills", "languages, ML, cloud &amp; tooling"],
+          ["research", "research interests &amp; publications"],
+          ["education", "academic background"],
+          ["projects", "top QuantSingularity projects"],
+          ["contact", "social &amp; professional links"],
+          ["whoami", "one-line summary"],
+          ["ls", "list files in this directory"],
+          ["cat &lt;file&gt;", "print a file (try: cat about.md)"],
+          ["history", "show command history"],
+          ["neofetch", "system info banner"],
+          ["clear", "clear the terminal"],
+        ];
+        let html = '<div class="help-grid">';
+        rows.forEach((r) => {
+          html +=
+            '<span class="cmd">' +
+            r[0] +
+            '</span><span class="desc">' +
+            r[1] +
+            "</span>";
+        });
+        html += "</div>";
+        return html;
+      }
+
+      function aboutOutput() {
+        return (
+          line(
+            "I am a quantitative researcher and engineer building <b>explainable, production-ready AI systems</b> for financial markets.",
+          ) +
+          line(
+            "My research covers volatility forecasting, market microstructure, and deep reinforcement learning for portfolio optimization. I have published four preprint papers on ResearchGate, Zenodo, and SSRN, each with a full Python implementation.",
+            "muted",
+          ) +
+          line(
+            "Through QuantSingularity, the research and engineering lab I founded in 2025, I maintain an open-source portfolio of 70+ repositories spanning quantitative trading systems, DeFi infrastructure, multi-agent AI frameworks, and ML research pipelines. Every project is production-oriented: modular architecture, reproducible experiments, explainability layers, and regulatory-grade logging.",
+            "muted",
+          ) +
+          line(
+            "Technically, I work across the full ML stack: time series modeling, walk-forward backtesting, SHAP attribution, reinforcement learning (PPO, QR-DDPG, SAC), factor models, stochastic volatility, and options pricing. I build both the research and the system that runs it.",
+            "muted",
+          ) +
+          line(
+            "Currently completing an <b>MSc in Financial Engineering</b> at WorldQuant University and actively looking for opportunities in quantitative finance, financial engineering, and ML-in-finance.",
+            "green",
+          )
+        );
+      }
+
+      function skillsOutput() {
+        return (
+          '<div class="icon-cat">languages</div><div class="icon-row"><img src="https://skillicons.dev/icons?i=python,cpp,r" alt="Python, C++, R"></div>' +
+          line("quant finance &amp; financial engineering", "violet") +
+          line(
+            "  portfolio optimization, Black-Litterman, risk parity, Monte Carlo simulation,",
+            "muted",
+          ) +
+          line(
+            "  options pricing (Black-Scholes, binomial, Heston), VaR &amp; CVaR, GARCH,",
+            "muted",
+          ) +
+          line(
+            "  factor models (Fama-French), fixed income &amp; yield curves, market microstructure",
+            "muted",
+          ) +
+          line("machine learning &amp; quant research", "violet") +
+          line(
+            "  time series modeling, walk-forward backtesting, SHAP &amp; explainable AI,",
+            "muted",
+          ) +
+          line(
+            "  reinforcement learning (PPO, QR-DDPG, SAC), deep learning (LSTM, transformers),",
+            "muted",
+          ) +
+          line("  graph neural networks, feature engineering", "muted") +
+          '<div class="icon-cat">ml frameworks</div><div class="icon-row"><img src="https://skillicons.dev/icons?i=pytorch,tensorflow,sklearn" alt="PyTorch, TensorFlow, scikit-learn"></div>' +
+          line("  + XGBoost, LightGBM", "muted") +
+          '<div class="icon-cat">cloud &amp; infrastructure</div><div class="icon-row"><img src="https://skillicons.dev/icons?i=aws,gcp,azure,docker,kubernetes" alt="AWS, GCP, Azure, Docker, Kubernetes"></div>' +
+          '<div class="icon-cat">data &amp; tooling</div><div class="icon-row"><img src="https://skillicons.dev/icons?i=postgres,mongodb,git,latex,matlab" alt="Postgres, MongoDB, Git, LaTeX, MATLAB"></div>'
+        );
+      }
+
+      function researchOutput() {
+        return (
+          line("Research interests:", "violet") +
+          line("  &gt; Volatility forecasting &amp; regime detection") +
+          line("  &gt; CBDC liquidity management systems") +
+          line("  &gt; Market microstructure &amp; spoofing detection") +
+          line("  &gt; Deep reinforcement learning for trading") +
+          line("  &gt; Quantum finance") +
+          line("") +
+          line(
+            "4 preprint papers published on ResearchGate, Zenodo, and SSRN, each with a full Python implementation.",
+            "muted",
+          ) +
+          '<div class="badge-row" style="margin-top:10px;">' +
+          '<a href="https://papers.ssrn.com/Sol3/Cf_Dev/AbsByAuth.cfm?per_id=10498476" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/SSRN-Research_Papers-154881?style=flat-square&logo=ssrn&logoColor=white" alt="SSRN"></a>' +
+          '<a href="https://www.researchgate.net/profile/Abrar-Ahmed-59" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/ResearchGate-Profile-00CCBB?style=flat-square&logo=researchgate&logoColor=white" alt="ResearchGate"></a>' +
+          "</div>"
+        );
+      }
+
+      function educationOutput() {
+        return (
+          line("<b>MSc, Financial Engineering</b>", "cyan") +
+          line("WorldQuant University, in progress", "muted") +
+          line("") +
+          line(
+            "Focus: portfolio management, quantitative risk, machine learning for finance.",
+            "muted",
+          )
+        );
+      }
+
+      function projectsOutput() {
+        return (
+          line(
+            "Top projects from <b>QuantSingularity</b> (70+ repos):",
+            "violet",
+          ) +
+          '<div class="link-line"><span class="key">QuantumAlpha</span><a href="https://github.com/quantsingularity/QuantumAlpha" target="_blank" rel="noopener">AI hedge fund platform, RL/ML alpha models</a></div>' +
+          '<div class="link-line"><span class="key">Fluxion</span><a href="https://github.com/quantsingularity/Fluxion" target="_blank" rel="noopener">ZK-powered DeFi liquidity engine (Circom/Groth16)</a></div>' +
+          '<div class="link-line"><span class="key">ChainFinity</span><a href="https://github.com/quantsingularity/ChainFinity" target="_blank" rel="noopener">Cross-chain DeFi risk management</a></div>' +
+          '<div class="link-line"><span class="key">AADXVA</span><a href="https://github.com/quantsingularity/AADXVA" target="_blank" rel="noopener">C++20 adjoint AD engine for equity XVA</a></div>' +
+          '<div class="link-line"><span class="key">QuantLab</span><a href="https://github.com/quantsingularity/QuantLab" target="_blank" rel="noopener">Multi-agent AI framework for quant research</a></div>' +
+          '<div class="link-line"><span class="key">GE-LSTM-Attn</span><a href="https://github.com/quantsingularity/Graph-Enhanced-LSTM-for-Volatility-and-Contagion-Forecasting" target="_blank" rel="noopener">Graph-enhanced volatility &amp; contagion forecasting</a></div>' +
+          line("") +
+          '<div class="link-line"><span class="key">org</span><a href="https://github.com/quantsingularity" target="_blank" rel="noopener">github.com/quantsingularity</a></div>' +
+          '<div class="link-line"><span class="key">site</span><a href="https://quantsingularity.github.io/Ledger/" target="_blank" rel="noopener">quantsingularity.github.io/Ledger</a></div>'
+        );
+      }
+
+      function contactOutput() {
+        return (
+          '<div class="link-line"><span class="key">linkedin</span><a href="https://linkedin.com/in/abrar2030" target="_blank" rel="noopener">linkedin.com/in/abrar2030</a></div>' +
+          '<div class="link-line"><span class="key">researchgate</span><a href="https://www.researchgate.net/profile/Abrar-Ahmed-59" target="_blank" rel="noopener">researchgate.net/profile/Abrar-Ahmed-59</a></div>' +
+          '<div class="link-line"><span class="key">credly</span><a href="https://www.credly.com/users/abrar-ahmed" target="_blank" rel="noopener">credly.com/users/abrar-ahmed</a></div>' +
+          '<div class="link-line"><span class="key">google cloud</span><a href="https://www.cloudskillsboost.google/public_profiles/1601f1ee-b805-48be-a523-753d139f53cf" target="_blank" rel="noopener">cloudskillsboost.google</a></div>' +
+          '<div class="link-line"><span class="key">hackerrank</span><a href="https://www.hackerrank.com/abrar2030" target="_blank" rel="noopener">hackerrank.com/abrar2030</a></div>'
+        );
+      }
+
+      function whoamiOutput() {
+        return line(
+          "Abrar Ahmed, quantitative researcher and engineer. Founder of QuantSingularity.",
+        );
+      }
+
+      function lsOutput() {
+        return line(
+          'about.md&nbsp;&nbsp;&nbsp;skills.json&nbsp;&nbsp;&nbsp;<span class="cyan">projects/</span>&nbsp;&nbsp;&nbsp;research.md&nbsp;&nbsp;&nbsp;education.md&nbsp;&nbsp;&nbsp;contact.txt',
+        );
+      }
+
+      function runCommand(raw) {
+        const trimmed = raw.trim();
+        renderHistoryLine(raw);
+        if (trimmed !== "") {
+          history.push(raw);
+        }
+        histIndex = history.length;
+
+        if (trimmed === "") {
+          return;
+        }
+        const parts = trimmed.split(/\s+/);
+        const cmd = parts[0].toLowerCase();
+        const arg = parts.slice(1).join(" ");
+
+        switch (cmd) {
+          case "help":
+            appendRaw(helpOutput());
+            break;
+          case "about":
+            appendRaw(aboutOutput());
+            break;
+          case "skills":
+            appendRaw(skillsOutput());
+            break;
+          case "research":
+            appendRaw(researchOutput());
+            break;
+          case "education":
+            appendRaw(educationOutput());
+            break;
+          case "projects":
+            appendRaw(projectsOutput());
+            break;
+          case "contact":
+          case "links":
+            appendRaw(contactOutput());
+            break;
+          case "whoami":
+            appendRaw(whoamiOutput());
+            break;
+          case "ls":
+            appendRaw(lsOutput());
+            break;
+          case "neofetch":
+            appendRaw(neofetch());
+            break;
+          case "date":
+            appendRaw(line(new Date().toString(), "muted"));
+            break;
+          case "history":
+            appendRaw(
+              history.map((h, i) => line(i + 1 + "  " + esc(h))).join(""),
+            );
+            break;
+          case "echo":
+            appendRaw(line(esc(arg)));
+            break;
+          case "sudo":
+            appendRaw(line("Permission denied: nice try.", "red"));
+            break;
+          case "clear":
+            body.innerHTML = "";
+            break;
+          case "exit":
+          case "logout":
+            appendRaw(line("Connection closed by remote host.", "red"));
+            break;
+          case "cat":
+            if (!arg) {
+              appendRaw(line("usage: cat &lt;file&gt;", "muted"));
+              break;
+            }
+            const key = Object.keys(FILES).find((f) => f === arg.toLowerCase());
+            if (!key) {
+              appendRaw(
+                line("cat: " + esc(arg) + ": No such file or directory", "red"),
+              );
+              break;
+            }
+            const fn = FILES[key];
+            const map = {
+              about: aboutOutput,
+              skills: skillsOutput,
+              research: researchOutput,
+              education: educationOutput,
+              contact: contactOutput,
+              projects: projectsOutput,
+            };
+            appendRaw(map[fn]());
+            break;
+          default:
+            appendRaw(
+              line(
+                "command not found: " +
+                  esc(cmd) +
+                  ". Type <b>help</b> for a list of commands.",
+                "red",
+              ),
+            );
+        }
+      }
+
+      function boot() {
+        appendRaw(neofetch());
+        appendRaw(line(""));
+        appendRaw(line("Type 'help' to see available commands.", "muted"));
+        appendRaw(promptRowHtml());
+        attachInput();
+      }
+
+      function promptRowHtml() {
+        return (
+          '<div class="prompt-line" id="promptLine"><span class="prompt-sym">' +
+          esc(PROMPT) +
+          "</span>" +
+          '<input id="cmdInput" type="text" autocomplete="off" spellcheck="false" aria-label="terminal command input" placeholder="type a command...">' +
+          "</div>"
+        );
+      }
+
+      function attachInput() {
+        const input = document.getElementById("cmdInput");
+        if (!input) return;
+        input.focus();
+        input.addEventListener("keydown", (e) => {
+          if (e.key === "Enter") {
+            const val = input.value;
+            document.getElementById("promptLine").remove();
+            runCommand(val);
+            appendRaw(promptRowHtml());
+            attachInput();
+          } else if (e.key === "ArrowUp") {
+            e.preventDefault();
+            if (histIndex > 0) {
+              histIndex--;
+              input.value = history[histIndex] || "";
+            }
+          } else if (e.key === "ArrowDown") {
+            e.preventDefault();
+            if (histIndex < history.length - 1) {
+              histIndex++;
+              input.value = history[histIndex] || "";
+            } else {
+              histIndex = history.length;
+              input.value = "";
+            }
+          } else if (e.key === "Tab") {
+            e.preventDefault();
+            const val = input.value.trim();
+            if (val) {
+              const match = COMMANDS.find((c) =>
+                c.startsWith(val.toLowerCase()),
+              );
+              if (match) {
+                input.value = match + " ";
+              }
+            }
+          }
+        });
+      }
+
+      body.addEventListener("click", () => {
+        const input = document.getElementById("cmdInput");
+        if (input) input.focus();
+      });
+
+      boot();
+
+      document
+        .querySelectorAll(".nav__links button[data-cmd]")
+        .forEach((btn) => {
+          btn.addEventListener("click", () => {
+            document
+              .querySelector(".terminal-shell")
+              .scrollIntoView({ behavior: "smooth", block: "center" });
+            const input = document.getElementById("cmdInput");
+            if (input) {
+              input.value = btn.dataset.cmd;
+              input.focus();
+              setTimeout(() => {
+                document.getElementById("promptLine").remove();
+                runCommand(btn.dataset.cmd);
+                appendRaw(promptRowHtml());
+                attachInput();
+              }, 350);
+            }
+          });
+        });
+    </script>
+  </body>
+</html>
