@@ -44,9 +44,11 @@
       }
       html {
         scroll-behavior: smooth;
+        overflow-x: hidden;
       }
       body {
         margin: 0;
+        overflow-x: hidden;
         background:
           radial-gradient(
             ellipse 900px 500px at 15% -10%,
@@ -386,16 +388,6 @@
         margin-top: 4px;
       }
 
-      .badge-row {
-        margin: 8px 0;
-      }
-      .badge-row img {
-        height: 26px;
-        margin: 4px 6px 4px 0;
-        display: inline-block;
-        vertical-align: middle;
-      }
-
       .prompt-line {
         display: flex;
         align-items: center;
@@ -431,6 +423,35 @@
         color: var(--text-dim);
         min-width: 110px;
         display: inline-block;
+      }
+      .link-panel {
+        background: var(--bg-terminal);
+        border: 1px solid var(--rule);
+        border-radius: 8px;
+        padding: 22px 24px;
+      }
+      .link-panel .link-line {
+        font-size: 14px;
+        gap: 14px;
+        padding: 7px 0;
+      }
+      .link-panel .link-line .key {
+        min-width: 130px;
+        font-weight: 500;
+      }
+      .link-panel .link-line a {
+        color: var(--text);
+        border-bottom: 1px solid var(--rule);
+        transition: all 0.15s ease;
+      }
+      .link-panel .link-line a:hover {
+        color: var(--cyan);
+        border-color: var(--cyan);
+      }
+      .link-panel .link-line::before {
+        content: ">";
+        color: var(--green);
+        margin-right: -4px;
       }
 
       /* ---------- CODE FILE SECTION ---------- */
@@ -478,6 +499,9 @@
         font-size: 13px;
         line-height: 1.85;
         overflow-x: auto;
+        width: 100%;
+        box-sizing: border-box;
+        max-width: 100%;
       }
       .tok-kw {
         color: var(--violet);
@@ -686,14 +710,6 @@
       }
 
       /* ---------- CONTACT ---------- */
-      .contact-grid {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-      }
-      .contact-grid img {
-        height: 34px;
-      }
 
       footer {
         border-top: 1px solid var(--rule);
@@ -730,6 +746,20 @@
         }
         .help-grid {
           grid-template-columns: 1fr;
+        }
+        .link-panel .link-line {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 3px;
+        }
+        .link-panel .link-line .key {
+          min-width: 0;
+        }
+        .link-panel .link-line a {
+          word-break: break-all;
+        }
+        .link-panel .link-line::before {
+          display: none;
         }
       }
     </style>
@@ -1433,23 +1463,25 @@
           <b>4 preprint papers</b> published on ResearchGate, Zenodo, and SSRN,
           each accompanied by a full Python implementation.
         </p>
-        <div class="badge-row">
-          <a
-            href="https://papers.ssrn.com/Sol3/Cf_Dev/AbsByAuth.cfm?per_id=10498476"
-            target="_blank"
-            rel="noopener"
-            ><img
-              src="https://img.shields.io/badge/SSRN-Research_Papers-154881?style=flat-square&logo=ssrn&logoColor=white"
-              alt="SSRN"
-          /></a>
-          <a
-            href="https://www.researchgate.net/profile/Abrar-Ahmed-59"
-            target="_blank"
-            rel="noopener"
-            ><img
-              src="https://img.shields.io/badge/ResearchGate-Profile-00CCBB?style=flat-square&logo=researchgate&logoColor=white"
-              alt="ResearchGate"
-          /></a>
+        <div class="link-panel">
+          <div class="link-line">
+            <span class="key">ssrn</span>
+            <a
+              href="https://papers.ssrn.com/Sol3/Cf_Dev/AbsByAuth.cfm?per_id=10498476"
+              target="_blank"
+              rel="noopener"
+              >Research Papers &#8599;</a
+            >
+          </div>
+          <div class="link-line">
+            <span class="key">researchgate</span>
+            <a
+              href="https://www.researchgate.net/profile/Abrar-Ahmed-59"
+              target="_blank"
+              rel="noopener"
+              >Profile &#8599;</a
+            >
+          </div>
         </div>
       </section>
 
@@ -1458,47 +1490,52 @@
           <span class="tag">08</span>
           <h2>contact.txt</h2>
         </div>
-        <div class="contact-grid">
-          <a
-            href="https://linkedin.com/in/abrar2030"
-            target="_blank"
-            rel="noopener"
-            ><img
-              src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white"
-              alt="LinkedIn"
-          /></a>
-          <a
-            href="https://www.researchgate.net/profile/Abrar-Ahmed-59"
-            target="_blank"
-            rel="noopener"
-            ><img
-              src="https://img.shields.io/badge/ResearchGate-00CCBB?style=for-the-badge&logo=researchgate&logoColor=white"
-              alt="ResearchGate"
-          /></a>
-          <a
-            href="https://www.credly.com/users/abrar-ahmed"
-            target="_blank"
-            rel="noopener"
-            ><img
-              src="https://img.shields.io/badge/Credly-FF6B00?style=for-the-badge&logo=credly&logoColor=white"
-              alt="Credly"
-          /></a>
-          <a
-            href="https://www.cloudskillsboost.google/public_profiles/1601f1ee-b805-48be-a523-753d139f53cf"
-            target="_blank"
-            rel="noopener"
-            ><img
-              src="https://img.shields.io/badge/Google_Cloud-4285F4?style=for-the-badge&logo=googlecloud&logoColor=white"
-              alt="Google Cloud"
-          /></a>
-          <a
-            href="https://www.hackerrank.com/abrar2030"
-            target="_blank"
-            rel="noopener"
-            ><img
-              src="https://img.shields.io/badge/HackerRank-00EA64?style=for-the-badge&logo=hackerrank&logoColor=black"
-              alt="HackerRank"
-          /></a>
+        <div class="link-panel">
+          <div class="link-line">
+            <span class="key">linkedin</span>
+            <a
+              href="https://linkedin.com/in/abrar2030"
+              target="_blank"
+              rel="noopener"
+              >linkedin.com/in/abrar2030 &#8599;</a
+            >
+          </div>
+          <div class="link-line">
+            <span class="key">researchgate</span>
+            <a
+              href="https://www.researchgate.net/profile/Abrar-Ahmed-59"
+              target="_blank"
+              rel="noopener"
+              >researchgate.net/profile/Abrar-Ahmed-59 &#8599;</a
+            >
+          </div>
+          <div class="link-line">
+            <span class="key">credly</span>
+            <a
+              href="https://www.credly.com/users/abrar-ahmed"
+              target="_blank"
+              rel="noopener"
+              >credly.com/users/abrar-ahmed &#8599;</a
+            >
+          </div>
+          <div class="link-line">
+            <span class="key">google cloud</span>
+            <a
+              href="https://www.cloudskillsboost.google/public_profiles/1601f1ee-b805-48be-a523-753d139f53cf"
+              target="_blank"
+              rel="noopener"
+              >cloudskillsboost.google &#8599;</a
+            >
+          </div>
+          <div class="link-line">
+            <span class="key">hackerrank</span>
+            <a
+              href="https://www.hackerrank.com/abrar2030"
+              target="_blank"
+              rel="noopener"
+              >hackerrank.com/abrar2030 &#8599;</a
+            >
+          </div>
         </div>
       </section>
     </main>
@@ -1762,10 +1799,8 @@
             "4 preprint papers published on ResearchGate, Zenodo, and SSRN, each with a full Python implementation.",
             "muted",
           ) +
-          '<div class="badge-row" style="margin-top:10px;">' +
-          '<a href="https://papers.ssrn.com/Sol3/Cf_Dev/AbsByAuth.cfm?per_id=10498476" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/SSRN-Research_Papers-154881?style=flat-square&logo=ssrn&logoColor=white" alt="SSRN"></a>' +
-          '<a href="https://www.researchgate.net/profile/Abrar-Ahmed-59" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/ResearchGate-Profile-00CCBB?style=flat-square&logo=researchgate&logoColor=white" alt="ResearchGate"></a>' +
-          "</div>"
+          '<div class="link-line"><span class="key">ssrn</span><a href="https://papers.ssrn.com/Sol3/Cf_Dev/AbsByAuth.cfm?per_id=10498476" target="_blank" rel="noopener">Research Papers &#8599;</a></div>' +
+          '<div class="link-line"><span class="key">researchgate</span><a href="https://www.researchgate.net/profile/Abrar-Ahmed-59" target="_blank" rel="noopener">Profile &#8599;</a></div>'
         );
       }
 
