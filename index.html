@@ -37,6 +37,7 @@
         --mono:
           "JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
         --maxw: 980px;
+        --maxw-nav: 1220px;
       }
       * {
         box-sizing: border-box;
@@ -101,8 +102,10 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
+        flex-wrap: wrap;
+        row-gap: 10px;
         padding: 16px 24px;
-        max-width: var(--maxw);
+        max-width: var(--maxw-nav);
         margin: 0 auto;
       }
       .wordmark {
@@ -138,7 +141,9 @@
       .nav__links {
         display: flex;
         align-items: center;
-        gap: 22px;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        gap: 10px 22px;
       }
       .nav__links button {
         background: none;
@@ -150,6 +155,7 @@
         letter-spacing: 0.01em;
         padding: 0;
         transition: color 0.15s ease;
+        white-space: nowrap;
       }
       .nav__links button:hover {
         color: var(--cyan);
@@ -162,9 +168,19 @@
         font-size: 12.5px;
         color: var(--text-dim);
         transition: color 0.15s ease;
+        white-space: nowrap;
       }
       .nav__links a.ext:hover {
         color: var(--violet);
+      }
+      @media (max-width: 1000px) {
+        .nav__links {
+          gap: 8px 16px;
+        }
+        .nav__links button,
+        .nav__links a.ext {
+          font-size: 11.5px;
+        }
       }
       @media (max-width: 680px) {
         .nav__links {
@@ -619,6 +635,55 @@
       .pub-note b {
         color: var(--text);
       }
+      .paper-list {
+        margin: 0 0 24px;
+      }
+      .paper-entry {
+        padding: 16px 0;
+        border-bottom: 1px solid var(--rule-soft);
+      }
+      .paper-entry:last-child {
+        border-bottom: none;
+      }
+      .paper-entry__title {
+        font-size: 14px;
+        color: var(--cyan);
+        font-weight: 500;
+      }
+      .paper-entry__year {
+        color: var(--text-faint);
+        font-size: 12.5px;
+        margin-left: 8px;
+      }
+      .paper-entry__desc {
+        font-size: 13px;
+        color: var(--text-dim);
+        margin-top: 6px;
+        line-height: 1.6;
+      }
+      .exp-entry {
+        margin-bottom: 28px;
+      }
+      .exp-entry:last-child {
+        margin-bottom: 0;
+      }
+      .exp-entry__role {
+        font-size: 14.5px;
+        color: var(--text);
+        font-weight: 600;
+      }
+      .exp-entry__org {
+        color: var(--cyan);
+        font-weight: 500;
+      }
+      .exp-entry__meta {
+        font-size: 12px;
+        color: var(--text-faint);
+        margin: 2px 0 12px;
+      }
+      .exp-entry .research-list {
+        margin: 0;
+      }
 
       /* ---------- CONTACT ---------- */
       .contact-grid {
@@ -678,6 +743,9 @@
         <nav class="nav__links">
           <button data-cmd="about">about</button>
           <button data-cmd="skills">skills</button>
+          <button data-cmd="experience">experience</button>
+          <button data-cmd="education">education</button>
+          <button data-cmd="certifications">certifications</button>
           <button data-cmd="projects">projects</button>
           <button data-cmd="research">research</button>
           <button data-cmd="contact">contact</button>
@@ -752,7 +820,9 @@
         <span class="tok-str">"hosts"</span>: [<span class="tok-str">"ResearchGate"</span>, <span class="tok-str">"Zenodo"</span>, <span class="tok-str">"SSRN"</span>],
     }
 
-    <span class="tok-prop">stack</span> = [<span class="tok-str">"Python"</span>, <span class="tok-str">"C++"</span>, <span class="tok-str">"R"</span>]
+    <span class="tok-prop">stack</span> = [<span class="tok-str">"Python"</span>, <span class="tok-str">"C++"</span>, <span class="tok-str">"R"</span>, <span class="tok-str">"Java"</span>, <span class="tok-str">"Bash"</span>]
+
+    <span class="tok-prop">languages_spoken</span> = [<span class="tok-str">"English (fluent)"</span>, <span class="tok-str">"Hungarian (elementary)"</span>]
 
     <span class="tok-kw">def</span> <span class="tok-fn">about</span>(<span class="tok-prop">self</span>):
         <span class="tok-kw">return</span> (
@@ -774,17 +844,22 @@
         <div class="skills-panel">
           <div class="skill-group">
             <div class="skill-group__label">Languages</div>
-            <img
-              src="https://skillicons.dev/icons?i=python,cpp,r"
-              alt="Python, C++, R"
-              loading="lazy"
-            />
+            <div class="chip-row">
+              <span class="skill-chip">Python</span>
+              <span class="skill-chip">C++</span>
+              <span class="skill-chip">R</span>
+              <span class="skill-chip">Java</span>
+              <span class="skill-chip">Bash</span>
+            </div>
           </div>
           <div class="skill-group">
             <div class="skill-group__label">
               Quantitative Finance &amp; Financial Engineering
             </div>
             <div class="chip-row">
+              <span class="skill-chip">Stochastic Calculus</span>
+              <span class="skill-chip">Numerical Methods</span>
+              <span class="skill-chip">Econometrics</span>
               <span class="skill-chip">Portfolio Optimization</span>
               <span class="skill-chip">Black-Litterman</span>
               <span class="skill-chip">Risk Parity</span>
@@ -808,7 +883,7 @@
               <span class="skill-chip">Walk-Forward Backtesting</span>
               <span class="skill-chip">SHAP &amp; Explainable AI</span>
               <span class="skill-chip"
-                >Reinforcement Learning (PPO, QR-DDPG, SAC)</span
+                >Reinforcement Learning (PPO, DDPG, SAC, QR-DDPG)</span
               >
               <span class="skill-chip">Deep Learning (LSTM, Transformers)</span>
               <span class="skill-chip">Graph Neural Networks</span>
@@ -817,38 +892,255 @@
           </div>
           <div class="skill-group">
             <div class="skill-group__label">ML Frameworks</div>
-            <img
-              src="https://skillicons.dev/icons?i=pytorch,tensorflow,sklearn"
-              alt="PyTorch, TensorFlow, scikit-learn"
-              loading="lazy"
-            />
-            <div class="chip-row" style="margin-top: 8px">
+            <div class="chip-row">
+              <span class="skill-chip">PyTorch</span>
+              <span class="skill-chip">TensorFlow</span>
+              <span class="skill-chip">scikit-learn</span>
               <span class="skill-chip">XGBoost</span>
               <span class="skill-chip">LightGBM</span>
             </div>
           </div>
           <div class="skill-group">
-            <div class="skill-group__label">Cloud &amp; Infrastructure</div>
-            <img
-              src="https://skillicons.dev/icons?i=aws,gcp,azure,docker,kubernetes"
-              alt="AWS, GCP, Azure, Docker, Kubernetes"
-              loading="lazy"
-            />
+            <div class="skill-group__label">Web &amp; API Frameworks</div>
+            <div class="chip-row">
+              <span class="skill-chip">FastAPI</span>
+              <span class="skill-chip">Django</span>
+              <span class="skill-chip">Flask</span>
+              <span class="skill-chip">React</span>
+            </div>
           </div>
           <div class="skill-group">
-            <div class="skill-group__label">Data &amp; Tooling</div>
-            <img
-              src="https://skillicons.dev/icons?i=postgres,mongodb,git,latex,matlab"
-              alt="Postgres, MongoDB, Git, LaTeX, MATLAB"
-              loading="lazy"
-            />
+            <div class="skill-group__label">Cloud &amp; Infrastructure</div>
+            <div class="chip-row">
+              <span class="skill-chip">AWS</span>
+              <span class="skill-chip">GCP</span>
+              <span class="skill-chip">Azure</span>
+              <span class="skill-chip">Docker</span>
+              <span class="skill-chip">Kubernetes</span>
+            </div>
+          </div>
+          <div class="skill-group">
+            <div class="skill-group__label">Engineering &amp; Tooling</div>
+            <div class="chip-row">
+              <span class="skill-chip">Git</span>
+              <span class="skill-chip">CMake</span>
+              <span class="skill-chip">GitHub Actions</span>
+              <span class="skill-chip">Linux</span>
+              <span class="skill-chip">PostgreSQL</span>
+              <span class="skill-chip">MongoDB</span>
+              <span class="skill-chip">LaTeX</span>
+              <span class="skill-chip">MATLAB</span>
+              <span class="skill-chip">MLflow</span>
+            </div>
           </div>
         </div>
       </section>
 
-      <section class="section" id="projects">
+      <section class="section" id="experience">
         <div class="section__head">
           <span class="tag">03</span>
+          <h2>experience.md</h2>
+        </div>
+
+        <div class="exp-entry">
+          <div class="exp-entry__role">
+            Founder &amp; Lead Researcher &middot;
+            <span class="exp-entry__org">QuantSingularity</span>
+          </div>
+          <div class="exp-entry__meta">Apr 2025 &ndash; Present</div>
+          <ul class="research-list">
+            <li>
+              <span class="tick">&gt;</span> Founded QuantSingularity, an
+              independent research and engineering lab with an open-source
+              portfolio of 70+ repositories spanning trading systems, DeFi
+              infrastructure, multi-agent AI frameworks, and ML research
+              pipelines.
+            </li>
+            <li>
+              <span class="tick">&gt;</span> Published four research papers on
+              ResearchGate, Zenodo, and SSRN.
+            </li>
+            <li>
+              <span class="tick">&gt;</span> Built <b>AlphaMind</b>, an
+              institutional-grade quantitative AI trading system integrating
+              signal generation, risk modeling, and execution in Python.
+            </li>
+            <li>
+              <span class="tick">&gt;</span> Developed <b>QuantLOB</b>, a
+              high-performance limit order book implementation in C++ for
+              microsecond-level market microstructure research.
+            </li>
+            <li>
+              <span class="tick">&gt;</span> Implemented reproducible ML
+              pipelines using walk-forward validation, fixed seeds, SHAP
+              explainability, and regulatory-grade logging across all research
+              projects.
+            </li>
+            <li>
+              <span class="tick">&gt;</span> Produced a Jupyter notebook series
+              covering stochastic volatility, exotic options pricing (Heston,
+              LSMC, barrier), hidden Markov regime switching, and cointegration
+              analysis.
+            </li>
+          </ul>
+        </div>
+
+        <div class="exp-entry">
+          <div class="exp-entry__role">
+            Lab Instructor &middot;
+            <span class="exp-entry__org"
+              >E&ouml;tv&ouml;s Lor&aacute;nd University</span
+            >
+          </div>
+          <div class="exp-entry__meta">
+            Feb 2025 &ndash; May 2025 &middot; Budapest, Hungary &middot;
+            On-site
+          </div>
+          <ul class="research-list">
+            <li>
+              <span class="tick">&gt;</span> Supported students in Python,
+              Operating Systems, and Algorithms &amp; Data Structures, helping
+              with concepts and debugging.
+            </li>
+            <li>
+              <span class="tick">&gt;</span> Independently conducted tutorials,
+              reviewed assignments, and facilitated discussions as the primary
+              instructor for lab sessions.
+            </li>
+            <li>
+              <span class="tick">&gt;</span> Collaborated with faculty to design
+              lab exercises and practice problems tailored to course objectives
+              and student needs.
+            </li>
+            <li>
+              <span class="tick">&gt;</span> Delivered technical explanations to
+              students with varying skill levels, strengthening the ability to
+              communicate complex concepts clearly and concisely.
+            </li>
+          </ul>
+        </div>
+
+        <div class="exp-entry">
+          <div class="exp-entry__role">
+            Student Developer &middot;
+            <span class="exp-entry__org">Ericsson</span>
+          </div>
+          <div class="exp-entry__meta">
+            Aug 2023 &ndash; Oct 2024 &middot; Budapest, Hungary &middot;
+            On-site
+          </div>
+          <ul class="research-list">
+            <li>
+              <span class="tick">&gt;</span> Developed and maintained Python and
+              Django applications as part of Ericsson's 5G intelligent
+              automation platform.
+            </li>
+            <li>
+              <span class="tick">&gt;</span> Built and delivered backend
+              features using Python and Django within an agile, production-grade
+              engineering team.
+            </li>
+            <li>
+              <span class="tick">&gt;</span> Contributed to DevOps workflows
+              including CI/CD pipelines, deployment automation, and release
+              management.
+            </li>
+            <li>
+              <span class="tick">&gt;</span> Collaborated with cross-functional
+              engineering teams to ship reliable, well-tested software across
+              development cycles.
+            </li>
+            <li>
+              <span class="tick">&gt;</span> Wrote and reviewed code to
+              production standards, maintaining quality and consistency
+              throughout the development lifecycle.
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section" id="education">
+        <div class="section__head">
+          <span class="tag">04</span>
+          <h2>education.md</h2>
+        </div>
+        <ul class="research-list">
+          <li>
+            <span class="tick">&gt;</span>
+            <b>MSc, Financial Engineering</b> &middot; WorldQuant University
+            &middot; Jan 2025 &ndash; Aug 2026. Coursework: Derivative Pricing
+            and Stochastic Modeling, Financial Markets, Financial Data and
+            Econometrics, Machine Learning and Deep Learning in Finance,
+            Portfolio and Risk Management.
+          </li>
+          <li>
+            <span class="tick">&gt;</span>
+            <b>BSc, Computer Science</b> &middot; E&ouml;tv&ouml;s Lor&aacute;nd
+            University (ELTE), Budapest &middot; Sep 2021 &ndash; Jan 2025.
+            Stipendium Hungaricum full scholarship recipient, selected from over
+            10,000 applicants. Coursework: Data Structures and Algorithms,
+            Machine Learning, Data Science and Statistical Analysis, Artificial
+            Intelligence, Databases and Data Warehousing, Cloud Computing.
+          </li>
+        </ul>
+      </section>
+
+      <section class="section" id="certifications">
+        <div class="section__head">
+          <span class="tag">05</span>
+          <h2>certifications.md</h2>
+        </div>
+        <ul class="research-list">
+          <li>
+            <span class="tick">&gt;</span>
+            <b>Deep Learning Fundamentals Lab</b> &middot; WorldQuant University
+            &middot; Issued Jul 2026.
+            <a
+              href="https://www.credly.com/badges/08d19edd-8038-476a-a874-bf8a8d29aff2"
+              target="_blank"
+              rel="noopener"
+              >Show credential &#8599;</a
+            >
+          </li>
+          <li>
+            <span class="tick">&gt;</span>
+            <b>Foundations of Financial Engineering</b> &middot; WorldQuant
+            University &middot; Issued May 2025.
+            <a
+              href="https://www.credly.com/badges/33821474-c2f4-43a8-9e33-0a2fc5eb64f1"
+              target="_blank"
+              rel="noopener"
+              >Show credential &#8599;</a
+            >
+          </li>
+          <li>
+            <span class="tick">&gt;</span>
+            <b>Applied AI Lab</b> &middot; WorldQuant University &middot; Issued
+            Apr 2025.
+            <a
+              href="https://www.credly.com/badges/14e2b4d4-c845-4a3e-a2ba-fed860deb5e6"
+              target="_blank"
+              rel="noopener"
+              >Show credential &#8599;</a
+            >
+          </li>
+          <li>
+            <span class="tick">&gt;</span>
+            <b>Applied Data Science Lab</b> &middot; WorldQuant University
+            &middot; Issued Mar 2025.
+            <a
+              href="https://www.credly.com/badges/6f482853-9ace-4f53-872f-ee534f785a91"
+              target="_blank"
+              rel="noopener"
+              >Show credential &#8599;</a
+            >
+          </li>
+        </ul>
+      </section>
+
+      <section class="section" id="projects">
+        <div class="section__head">
+          <span class="tag">06</span>
           <h2>projects/</h2>
         </div>
         <div class="project-grid">
@@ -954,13 +1246,170 @@
               ><span class="project-tag">Systemic Risk</span>
             </div>
           </a>
+          <a
+            class="project-card"
+            href="https://github.com/quantsingularity/QuantLOB"
+            target="_blank"
+            rel="noopener"
+          >
+            <div class="project-card__name">QuantLOB</div>
+            <div class="project-card__desc">
+              High-performance limit order book simulator with price-time
+              priority matching and sub-millisecond latency profiling; market
+              microstructure analytics with LOBSTER data replay.
+            </div>
+            <div class="project-card__tags">
+              <span class="project-tag">C++20</span
+              ><span class="project-tag">Python</span
+              ><span class="project-tag">CMake</span>
+            </div>
+          </a>
+          <a
+            class="project-card"
+            href="https://github.com/quantsingularity/AlphaMind"
+            target="_blank"
+            rel="noopener"
+          >
+            <div class="project-card__name">AlphaMind</div>
+            <div class="project-card__desc">
+              Quantitative trading platform integrating forecasting, portfolio
+              optimization, risk management, and execution, with RL models for
+              signal discovery and cloud-native microservices.
+            </div>
+            <div class="project-card__tags">
+              <span class="project-tag">FastAPI</span
+              ><span class="project-tag">React</span
+              ><span class="project-tag">PyTorch</span>
+            </div>
+          </a>
+          <a
+            class="project-card"
+            href="https://github.com/quantsingularity/Deep-Learning-for-HFT-Market-Microstructure-Spoofing-Detection"
+            target="_blank"
+            rel="noopener"
+          >
+            <div class="project-card__name">HFT Spoofing Detection</div>
+            <div class="project-card__desc">
+              Transformer-Encoder and Hawkes-process graph model for detecting
+              algorithmic spoofing in high-frequency limit order book data, with
+              adversarial robustness testing.
+            </div>
+            <div class="project-card__tags">
+              <span class="project-tag">PyTorch</span
+              ><span class="project-tag">Transformers</span
+              ><span class="project-tag">GNN</span>
+            </div>
+          </a>
+          <a
+            class="project-card"
+            href="https://github.com/quantsingularity/Explainable-Deep-Learning-for-Financial-Volatility-Forecasting"
+            target="_blank"
+            rel="noopener"
+          >
+            <div class="project-card__name">XAI Volatility Forecasting</div>
+            <div class="project-card__desc">
+              Hybrid LSTM-Attention model jointly forecasting volatility and
+              VaR, with SHAP-based explainability and a full MLOps deployment
+              stack.
+            </div>
+            <div class="project-card__tags">
+              <span class="project-tag">LSTM</span
+              ><span class="project-tag">SHAP</span
+              ><span class="project-tag">MLflow</span>
+            </div>
+          </a>
+          <a
+            class="project-card"
+            href="https://github.com/quantsingularity/Quantum-Enhanced-Deep-RL-for-CBDC-Optimization"
+            target="_blank"
+            rel="noopener"
+          >
+            <div class="project-card__name">Quantum CBDC Optimization</div>
+            <div class="project-card__desc">
+              Variational Quantum Circuit combined with Soft Actor-Critic RL to
+              optimize liquidity management in CBDC systems, benchmarked against
+              classical baselines.
+            </div>
+            <div class="project-card__tags">
+              <span class="project-tag">PennyLane</span
+              ><span class="project-tag">SAC</span
+              ><span class="project-tag">Quantum ML</span>
+            </div>
+          </a>
+          <a
+            class="project-card"
+            href="https://github.com/quantsingularity/DRL-Portfolio-Optimization-PPO-QR-DDPG-DDPG-SAC"
+            target="_blank"
+            rel="noopener"
+          >
+            <div class="project-card__name">DRL Portfolio Optimization</div>
+            <div class="project-card__desc">
+              Comparative study of PPO, QR-DDPG, DDPG, and SAC for continuous
+              portfolio optimization across 25 assets, with transaction-cost and
+              market-regime analysis.
+            </div>
+            <div class="project-card__tags">
+              <span class="project-tag">PPO</span
+              ><span class="project-tag">QR-DDPG</span
+              ><span class="project-tag">SAC</span>
+            </div>
+          </a>
         </div>
       </section>
 
       <section class="section" id="research">
         <div class="section__head">
-          <span class="tag">04</span>
+          <span class="tag">07</span>
           <h2>research.md</h2>
+        </div>
+        <div class="paper-list">
+          <div class="paper-entry">
+            <span class="paper-entry__title"
+              >Reinforcement Learning for Risk-Aware Portfolio
+              Optimization</span
+            ><span class="paper-entry__year">2025</span>
+            <div class="paper-entry__desc">
+              Risk-aware MDP with maximum-drawdown penalty and transaction-aware
+              slippage. PPO reached Sharpe 2.15; QR-DDPG minimized tail risk
+              (CVaR &minus;1.5%), validated via ANOVA and Tukey HSD across 10
+              seeds.
+            </div>
+          </div>
+          <div class="paper-entry">
+            <span class="paper-entry__title"
+              >High-Frequency Market Microstructure Analysis for Detecting
+              Algorithmic Spoofing</span
+            ><span class="paper-entry__year">2026</span>
+            <div class="paper-entry__desc">
+              Transformer-Encoder Network for Level-3 limit order book
+              sequences. F1 0.941 on simulated data, with transfer learning on
+              LOBSTER and FI-2010 and attention-based explainability for MiFID
+              II / MAR.
+            </div>
+          </div>
+          <div class="paper-entry">
+            <span class="paper-entry__title"
+              >Explainable Deep Learning for Volatility Forecasting using LSTM,
+              Attention, and SHAP</span
+            ><span class="paper-entry__year">2026</span>
+            <div class="paper-entry__desc">
+              Forecasts realized volatility and 99% VaR across a multi-asset
+              portfolio (2018-2024). 28.6% RMSE reduction vs GARCH(1,1); VaR
+              violation rate 1.05% (Kupiec and Christoffersen accepted), Basel
+              Green Zone.
+            </div>
+          </div>
+          <div class="paper-entry">
+            <span class="paper-entry__title"
+              >Quantum-Enhanced Deep Reinforcement Learning for CBDC Liquidity
+              Management</span
+            ><span class="paper-entry__year">2025</span>
+            <div class="paper-entry__desc">
+              QSAC architecture embedding Variational Quantum Circuits in the
+              critic for high-dimensional liquidity control. 8.1% reduction in
+              funding costs with zero LCR breaches out-of-sample.
+            </div>
+          </div>
         </div>
         <ul class="research-list">
           <li>
@@ -1006,7 +1455,7 @@
 
       <section class="section" id="contact">
         <div class="section__head">
-          <span class="tag">05</span>
+          <span class="tag">08</span>
           <h2>contact.txt</h2>
         </div>
         <div class="contact-grid">
@@ -1078,8 +1527,10 @@
       const FILES = {
         "about.md": "about",
         "skills.json": "skills",
-        "research.md": "research",
+        "experience.md": "experience",
         "education.md": "education",
+        "certifications.md": "certifications",
+        "research.md": "research",
         "contact.txt": "contact",
         projects: "projects",
       };
@@ -1087,8 +1538,10 @@
         "help",
         "about",
         "skills",
-        "research",
+        "experience",
         "education",
+        "certifications",
+        "research",
         "projects",
         "contact",
         "whoami",
@@ -1151,7 +1604,7 @@
           line("OS       : WorldQuant University (MScFE)") +
           line("Host     : QuantSingularity Research Lab") +
           line("Role     : Quantitative Researcher &amp; Engineer") +
-          line("Languages: Python, C++, R") +
+          line("Languages: Python, C++, R, Java, Bash") +
           line(
             "ML       : PyTorch, TensorFlow, scikit-learn, XGBoost, LightGBM",
           ) +
@@ -1168,8 +1621,10 @@
           ["help", "list available commands"],
           ["about", "who I am, in one paragraph"],
           ["skills", "languages, ML, cloud &amp; tooling"],
-          ["research", "research interests &amp; publications"],
+          ["experience", "work history &amp; roles"],
           ["education", "academic background"],
+          ["certifications", "licenses &amp; certifications"],
+          ["research", "research interests &amp; publications"],
           ["projects", "top QuantSingularity projects"],
           ["contact", "social &amp; professional links"],
           ["whoami", "one-line summary"],
@@ -1198,6 +1653,10 @@
             "I am a quantitative researcher and engineer building <b>explainable, production-ready AI systems</b> for financial markets.",
           ) +
           line(
+            "I hold an MSc in Financial Engineering and a BSc in Computer Science (Stipendium Hungaricum full scholarship, ELTE Budapest), with strength in numerical methods and machine learning applied to finance.",
+            "muted",
+          ) +
+          line(
             "My research covers volatility forecasting, market microstructure, and deep reinforcement learning for portfolio optimization. I have published four preprint papers on ResearchGate, Zenodo, and SSRN, each with a full Python implementation.",
             "muted",
           ) +
@@ -1218,18 +1677,19 @@
 
       function skillsOutput() {
         return (
-          '<div class="icon-cat">languages</div><div class="icon-row"><img src="https://skillicons.dev/icons?i=python,cpp,r" alt="Python, C++, R"></div>' +
+          line("languages", "violet") +
+          line("  Python, C++, R, Java, Bash", "muted") +
           line("quant finance &amp; financial engineering", "violet") +
           line(
-            "  portfolio optimization, Black-Litterman, risk parity, Monte Carlo simulation,",
+            "  stochastic calculus, numerical methods, econometrics, portfolio optimization,",
             "muted",
           ) +
           line(
-            "  options pricing (Black-Scholes, binomial, Heston), VaR &amp; CVaR, GARCH,",
+            "  Black-Litterman, risk parity, Monte Carlo simulation, options pricing (Black-Scholes, binomial, Heston),",
             "muted",
           ) +
           line(
-            "  factor models (Fama-French), fixed income &amp; yield curves, market microstructure",
+            "  VaR &amp; CVaR, GARCH, factor models (Fama-French), fixed income &amp; yield curves, market microstructure",
             "muted",
           ) +
           line("machine learning &amp; quant research", "violet") +
@@ -1238,19 +1698,59 @@
             "muted",
           ) +
           line(
-            "  reinforcement learning (PPO, QR-DDPG, SAC), deep learning (LSTM, transformers),",
+            "  reinforcement learning (PPO, DDPG, SAC, QR-DDPG), deep learning (LSTM, transformers),",
             "muted",
           ) +
           line("  graph neural networks, feature engineering", "muted") +
-          '<div class="icon-cat">ml frameworks</div><div class="icon-row"><img src="https://skillicons.dev/icons?i=pytorch,tensorflow,sklearn" alt="PyTorch, TensorFlow, scikit-learn"></div>' +
-          line("  + XGBoost, LightGBM", "muted") +
-          '<div class="icon-cat">cloud &amp; infrastructure</div><div class="icon-row"><img src="https://skillicons.dev/icons?i=aws,gcp,azure,docker,kubernetes" alt="AWS, GCP, Azure, Docker, Kubernetes"></div>' +
-          '<div class="icon-cat">data &amp; tooling</div><div class="icon-row"><img src="https://skillicons.dev/icons?i=postgres,mongodb,git,latex,matlab" alt="Postgres, MongoDB, Git, LaTeX, MATLAB"></div>'
+          line("ml frameworks", "violet") +
+          line(
+            "  PyTorch, TensorFlow, scikit-learn, XGBoost, LightGBM",
+            "muted",
+          ) +
+          line("web &amp; api frameworks", "violet") +
+          line("  FastAPI, Django, Flask, React", "muted") +
+          line("cloud &amp; infrastructure", "violet") +
+          line("  AWS, GCP, Azure, Docker, Kubernetes", "muted") +
+          line("engineering &amp; tooling", "violet") +
+          line(
+            "  Git, CMake, GitHub Actions, Linux, PostgreSQL, MongoDB, LaTeX, MATLAB, MLflow",
+            "muted",
+          )
         );
       }
 
       function researchOutput() {
         return (
+          line("Published papers:", "violet") +
+          line(
+            "  <b>Reinforcement Learning for Risk-Aware Portfolio Optimization</b> (2025)",
+          ) +
+          line(
+            "  Risk-aware MDP with max-drawdown penalty. PPO Sharpe 2.15; QR-DDPG CVaR &minus;1.5%, validated across 10 seeds.",
+            "muted",
+          ) +
+          line(
+            "  <b>HF Market Microstructure Analysis for Detecting Algorithmic Spoofing</b> (2026)",
+          ) +
+          line(
+            "  Transformer-Encoder on Level-3 LOB sequences. F1 0.941, transfer learning on LOBSTER and FI-2010.",
+            "muted",
+          ) +
+          line(
+            "  <b>Explainable Deep Learning for Volatility Forecasting</b> (2026)",
+          ) +
+          line(
+            "  LSTM + Attention + SHAP. 28.6% RMSE reduction vs GARCH(1,1); VaR violation rate 1.05%, Basel Green Zone.",
+            "muted",
+          ) +
+          line(
+            "  <b>Quantum-Enhanced Deep RL for CBDC Liquidity Management</b> (2025)",
+          ) +
+          line(
+            "  QSAC with Variational Quantum Circuits. 8.1% funding cost reduction, zero LCR breaches out-of-sample.",
+            "muted",
+          ) +
+          line("") +
           line("Research interests:", "violet") +
           line("  &gt; Volatility forecasting &amp; regime detection") +
           line("  &gt; CBDC liquidity management systems") +
@@ -1269,15 +1769,95 @@
         );
       }
 
+      function experienceOutput() {
+        return (
+          line(
+            "<b>Founder &amp; Lead Researcher</b> &middot; QuantSingularity",
+            "cyan",
+          ) +
+          line("Apr 2025 &ndash; Present", "muted") +
+          line(
+            "  &gt; Founded QuantSingularity, an independent research and engineering lab with 70+ open-source repositories spanning trading systems, DeFi infrastructure, multi-agent AI, and ML research pipelines.",
+          ) +
+          line(
+            "  &gt; Published four research papers on ResearchGate, Zenodo, and SSRN.",
+          ) +
+          line(
+            "  &gt; Built <b>AlphaMind</b>, an institutional-grade quant AI trading system (signal generation, risk modeling, execution) in Python.",
+          ) +
+          line(
+            "  &gt; Developed <b>QuantLOB</b>, a high-performance C++ limit order book for microsecond-level market microstructure research.",
+          ) +
+          line(
+            "  &gt; Implemented reproducible ML pipelines: walk-forward validation, fixed seeds, SHAP explainability, regulatory-grade logging.",
+          ) +
+          line(
+            "  &gt; Produced a notebook series on stochastic volatility, exotic options pricing, regime switching, and cointegration analysis.",
+          ) +
+          line("") +
+          line(
+            "<b>Lab Instructor</b> &middot; E&ouml;tv&ouml;s Lor&aacute;nd University",
+            "cyan",
+          ) +
+          line(
+            "Feb 2025 &ndash; May 2025 &middot; Budapest, Hungary",
+            "muted",
+          ) +
+          line(
+            "  &gt; Primary instructor for lab sessions in Python, Operating Systems, and Algorithms &amp; Data Structures.",
+          ) +
+          line(
+            "  &gt; Designed lab exercises and practice problems with faculty, tailored to course objectives.",
+          ) +
+          line("") +
+          line("<b>Student Developer</b> &middot; Ericsson", "cyan") +
+          line(
+            "Aug 2023 &ndash; Oct 2024 &middot; Budapest, Hungary",
+            "muted",
+          ) +
+          line(
+            "  &gt; Built and maintained Python/Django backend features for Ericsson's 5G intelligent automation platform.",
+          ) +
+          line(
+            "  &gt; Contributed to CI/CD pipelines, deployment automation, and release management in an agile team.",
+          )
+        );
+      }
+
       function educationOutput() {
         return (
           line("<b>MSc, Financial Engineering</b>", "cyan") +
-          line("WorldQuant University, in progress", "muted") +
-          line("") +
           line(
-            "Focus: portfolio management, quantitative risk, machine learning for finance.",
+            "WorldQuant University &middot; Jan 2025 &ndash; Aug 2026",
+            "muted",
+          ) +
+          line(
+            "Coursework: Derivative Pricing and Stochastic Modeling, Financial Markets, Financial Data and Econometrics, Machine Learning and Deep Learning in Finance, Portfolio and Risk Management.",
+            "muted",
+          ) +
+          line("") +
+          line("<b>BSc, Computer Science</b>", "cyan") +
+          line(
+            "E&ouml;tv&ouml;s Lor&aacute;nd University (ELTE), Budapest &middot; Sep 2021 &ndash; Jan 2025",
+            "muted",
+          ) +
+          line(
+            "Stipendium Hungaricum full scholarship recipient, selected from over 10,000 applicants.",
+            "green",
+          ) +
+          line(
+            "Coursework: Data Structures and Algorithms, Machine Learning, Data Science and Statistical Analysis, Artificial Intelligence, Databases and Data Warehousing, Cloud Computing.",
             "muted",
           )
+        );
+      }
+
+      function certificationsOutput() {
+        return (
+          '<div class="link-line"><span class="key">Deep Learning Fundamentals Lab</span><a href="https://www.credly.com/badges/08d19edd-8038-476a-a874-bf8a8d29aff2" target="_blank" rel="noopener">WorldQuant University &middot; Jul 2026</a></div>' +
+          '<div class="link-line"><span class="key">Foundations of Financial Engineering</span><a href="https://www.credly.com/badges/33821474-c2f4-43a8-9e33-0a2fc5eb64f1" target="_blank" rel="noopener">WorldQuant University &middot; May 2025</a></div>' +
+          '<div class="link-line"><span class="key">Applied AI Lab</span><a href="https://www.credly.com/badges/14e2b4d4-c845-4a3e-a2ba-fed860deb5e6" target="_blank" rel="noopener">WorldQuant University &middot; Apr 2025</a></div>' +
+          '<div class="link-line"><span class="key">Applied Data Science Lab</span><a href="https://www.credly.com/badges/6f482853-9ace-4f53-872f-ee534f785a91" target="_blank" rel="noopener">WorldQuant University &middot; Mar 2025</a></div>'
         );
       }
 
@@ -1288,11 +1868,17 @@
             "violet",
           ) +
           '<div class="link-line"><span class="key">QuantumAlpha</span><a href="https://github.com/quantsingularity/QuantumAlpha" target="_blank" rel="noopener">AI hedge fund platform, RL/ML alpha models</a></div>' +
+          '<div class="link-line"><span class="key">AlphaMind</span><a href="https://github.com/quantsingularity/AlphaMind" target="_blank" rel="noopener">Trading platform: forecasting, optimization, execution</a></div>' +
+          '<div class="link-line"><span class="key">QuantLOB</span><a href="https://github.com/quantsingularity/QuantLOB" target="_blank" rel="noopener">C++20 limit order book simulator, sub-ms latency</a></div>' +
           '<div class="link-line"><span class="key">Fluxion</span><a href="https://github.com/quantsingularity/Fluxion" target="_blank" rel="noopener">ZK-powered DeFi liquidity engine (Circom/Groth16)</a></div>' +
           '<div class="link-line"><span class="key">ChainFinity</span><a href="https://github.com/quantsingularity/ChainFinity" target="_blank" rel="noopener">Cross-chain DeFi risk management</a></div>' +
           '<div class="link-line"><span class="key">AADXVA</span><a href="https://github.com/quantsingularity/AADXVA" target="_blank" rel="noopener">C++20 adjoint AD engine for equity XVA</a></div>' +
           '<div class="link-line"><span class="key">QuantLab</span><a href="https://github.com/quantsingularity/QuantLab" target="_blank" rel="noopener">Multi-agent AI framework for quant research</a></div>' +
           '<div class="link-line"><span class="key">GE-LSTM-Attn</span><a href="https://github.com/quantsingularity/Graph-Enhanced-LSTM-for-Volatility-and-Contagion-Forecasting" target="_blank" rel="noopener">Graph-enhanced volatility &amp; contagion forecasting</a></div>' +
+          '<div class="link-line"><span class="key">HFT-Spoofing</span><a href="https://github.com/quantsingularity/Deep-Learning-for-HFT-Market-Microstructure-Spoofing-Detection" target="_blank" rel="noopener">TEN-GNN spoofing detection, F1 0.941</a></div>' +
+          '<div class="link-line"><span class="key">XAI-Volatility</span><a href="https://github.com/quantsingularity/Explainable-Deep-Learning-for-Financial-Volatility-Forecasting" target="_blank" rel="noopener">LSTM-Attention volatility &amp; VaR forecasting</a></div>' +
+          '<div class="link-line"><span class="key">Quantum-CBDC</span><a href="https://github.com/quantsingularity/Quantum-Enhanced-Deep-RL-for-CBDC-Optimization" target="_blank" rel="noopener">Quantum-classical SAC for CBDC liquidity</a></div>' +
+          '<div class="link-line"><span class="key">DRL-Portfolio</span><a href="https://github.com/quantsingularity/DRL-Portfolio-Optimization-PPO-QR-DDPG-DDPG-SAC" target="_blank" rel="noopener">Comparative DRL portfolio optimization</a></div>' +
           line("") +
           '<div class="link-line"><span class="key">org</span><a href="https://github.com/quantsingularity" target="_blank" rel="noopener">github.com/quantsingularity</a></div>' +
           '<div class="link-line"><span class="key">site</span><a href="https://quantsingularity.github.io/Ledger/" target="_blank" rel="noopener">quantsingularity.github.io/Ledger</a></div>'
@@ -1317,7 +1903,7 @@
 
       function lsOutput() {
         return line(
-          'about.md&nbsp;&nbsp;&nbsp;skills.json&nbsp;&nbsp;&nbsp;<span class="cyan">projects/</span>&nbsp;&nbsp;&nbsp;research.md&nbsp;&nbsp;&nbsp;education.md&nbsp;&nbsp;&nbsp;contact.txt',
+          'about.md&nbsp;&nbsp;&nbsp;skills.json&nbsp;&nbsp;&nbsp;experience.md&nbsp;&nbsp;&nbsp;education.md&nbsp;&nbsp;&nbsp;certifications.md&nbsp;&nbsp;&nbsp;<span class="cyan">projects/</span>&nbsp;&nbsp;&nbsp;research.md&nbsp;&nbsp;&nbsp;contact.txt',
         );
       }
 
@@ -1346,11 +1932,17 @@
           case "skills":
             appendRaw(skillsOutput());
             break;
+          case "experience":
+            appendRaw(experienceOutput());
+            break;
           case "research":
             appendRaw(researchOutput());
             break;
           case "education":
             appendRaw(educationOutput());
+            break;
+          case "certifications":
+            appendRaw(certificationsOutput());
             break;
           case "projects":
             appendRaw(projectsOutput());
@@ -1405,8 +1997,10 @@
             const map = {
               about: aboutOutput,
               skills: skillsOutput,
+              experience: experienceOutput,
               research: researchOutput,
               education: educationOutput,
+              certifications: certificationsOutput,
               contact: contactOutput,
               projects: projectsOutput,
             };
