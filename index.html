@@ -328,6 +328,9 @@
       .line.cyan {
         color: var(--cyan);
       }
+      .cyan {
+        color: var(--cyan);
+      }
       .line.violet {
         color: var(--violet);
       }
@@ -1470,13 +1473,22 @@
               href="https://papers.ssrn.com/Sol3/Cf_Dev/AbsByAuth.cfm?per_id=10498476"
               target="_blank"
               rel="noopener"
-              >Research Papers &#8599;</a
+              >Profile &#8599;</a
             >
           </div>
           <div class="link-line">
             <span class="key">researchgate</span>
             <a
               href="https://www.researchgate.net/profile/Abrar-Ahmed-59"
+              target="_blank"
+              rel="noopener"
+              >Profile &#8599;</a
+            >
+          </div>
+          <div class="link-line">
+            <span class="key">google scholar</span>
+            <a
+              href="https://scholar.google.com/citations?user=fbBhpwIAAAAJ&amp;hl=en"
               target="_blank"
               rel="noopener"
               >Profile &#8599;</a
@@ -1498,15 +1510,6 @@
               target="_blank"
               rel="noopener"
               >linkedin.com/in/abrar2030 &#8599;</a
-            >
-          </div>
-          <div class="link-line">
-            <span class="key">researchgate</span>
-            <a
-              href="https://www.researchgate.net/profile/Abrar-Ahmed-59"
-              target="_blank"
-              rel="noopener"
-              >researchgate.net/profile/Abrar-Ahmed-59 &#8599;</a
             >
           </div>
           <div class="link-line">
@@ -1800,7 +1803,8 @@
             "muted",
           ) +
           '<div class="link-line"><span class="key">ssrn</span><a href="https://papers.ssrn.com/Sol3/Cf_Dev/AbsByAuth.cfm?per_id=10498476" target="_blank" rel="noopener">Research Papers &#8599;</a></div>' +
-          '<div class="link-line"><span class="key">researchgate</span><a href="https://www.researchgate.net/profile/Abrar-Ahmed-59" target="_blank" rel="noopener">Profile &#8599;</a></div>'
+          '<div class="link-line"><span class="key">researchgate</span><a href="https://www.researchgate.net/profile/Abrar-Ahmed-59" target="_blank" rel="noopener">Profile &#8599;</a></div>' +
+          '<div class="link-line"><span class="key">google scholar</span><a href="https://scholar.google.com/citations?user=fbBhpwIAAAAJ&amp;hl=en" target="_blank" rel="noopener">Profile &#8599;</a></div>'
         );
       }
 
@@ -1818,10 +1822,10 @@
             "  &gt; Published four research papers on ResearchGate, Zenodo, and SSRN.",
           ) +
           line(
-            "  &gt; Built <b>AlphaMind</b>, an institutional-grade quant AI trading system (signal generation, risk modeling, execution) in Python.",
+            '  &gt; Built <span class="cyan">AlphaMind</span>, an institutional-grade quant AI trading system (signal generation, risk modeling, execution) in Python.',
           ) +
           line(
-            "  &gt; Developed <b>QuantLOB</b>, a high-performance C++ limit order book for microsecond-level market microstructure research.",
+            '  &gt; Developed <span class="cyan">QuantLOB</span>, a high-performance C++ limit order book for microsecond-level market microstructure research.',
           ) +
           line(
             "  &gt; Implemented reproducible ML pipelines: walk-forward validation, fixed seeds, SHAP explainability, regulatory-grade logging.",
